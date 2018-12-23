@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.Vector;
 
 //-
@@ -10,7 +11,7 @@ import java.util.Vector;
 public class Question {
 
 
-	String Disc;
+	public String Disc;
 	Post post;
 	Vector MCQ=new Vector();
 	
@@ -19,6 +20,20 @@ public class Question {
 		return null;
 		
 	}
+	public String Set_Q()
+	{
+		Scanner sscanner=new Scanner(System.in);
+		//String xString="";
+		System.out.println("Enter Question Description: ");
+		Disc=sscanner.nextLine();
+		return Disc;
+	}
+	public String Get_Dis()
+	{
+		return Disc;
+	}
+		
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
