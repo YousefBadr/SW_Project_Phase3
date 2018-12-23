@@ -1,4 +1,3 @@
-import SWE.User;
 
 public class User {
 	public String ID;

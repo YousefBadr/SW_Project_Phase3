@@ -13,6 +13,5 @@ public class Report {
 	public void Inform_Dev(String report_id)
 	{
 		
-	
-
+	}
 }

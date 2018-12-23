@@ -1,18 +1,31 @@
 import java.util.Vector;
 
-import SWE.Post;
+
 
 public class Post_Control {
 
 	
-	public void Add_PI(String c , int [][] img)
+	//public Post created=null;
+	public void Add_PI(String c , String des,String img , Question question , String id)
 	{
+		//System.out.println("-------------------- "+question.Disc);
+		Post Created=new Post();
+		Created=Created.New_Post(c, des, img, question, id);
+		Posts_model data=new Posts_model();
+		data.Add_Post_To_Model(Created);
 		
 	}
 	
-	public Boolean Check_MCQ(String choose)
+	public Boolean Check_MCQ(int choose)
 	{
-		return null;
+		if(choose==1)
+		{
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 		
 	}
 	public Vector Get_Posts(String Mail)
@@ -49,6 +62,7 @@ public class Post_Control {
 		return User_ID;
 		
 	}
+	
 	
 
 }
