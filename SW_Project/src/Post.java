@@ -11,13 +11,28 @@
 public class Post {
 	public String ID ;
 	public String Category ;
-	public int[][] image ;
+	public String Description ;
+	public String image ;
 	public Question Questions;
 	public String User_ID ;
 	
-	Post New_Post (String c,String des,int [][] img) 
+	public Post()
 	{
-		return null;
+		
+	}
+	public Post New_Post (String c,String des,String img , Question question , String UID) 
+	{
+		Post aPost=new Post();
+		Question aQuestion=new Question();
+		aPost.Category=c;
+		aPost.Description=des;
+		aPost.image=img;
+		aPost.Questions=question;
+		aPost.User_ID=UID;
+		
+		//System.out.println(aPost.Description+" "+aPost.Category+" "+aPost.image+" "+aPost.Questions.Disc+" "+aPost.User_ID);
+		return aPost;
+		
 	}
 	Question get_Question_inf(Post post)
 	{
@@ -30,5 +45,9 @@ public class Post {
 	}
 	
 	
+//	public void Show_Details()
+//	{
+//		System.out.print(ID+" "+Category+" "+image+" "+Questions+" "+User_ID);
+//	}
 	
 }

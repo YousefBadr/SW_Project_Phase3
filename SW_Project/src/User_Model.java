@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 //+ get_user_by_id(user's id:string):User
 //+ update_inf(user:User):void
 //+Delete_user(user:User):void
@@ -7,6 +9,7 @@
 //+Delete_User(User_ID): void
 
 public class User_Model {
+	public static Vector<User>User_Database=new Vector<>();
 	User get_user_by_id(String users_id)
 	{
 		return null;
