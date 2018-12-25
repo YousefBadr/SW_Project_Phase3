@@ -1,3 +1,4 @@
+
 import java.util.Vector;
 
 //+ get_user_by_id(user's id:string):User
@@ -13,20 +14,21 @@ public class User_Model {
 	User get_user_by_id(String users_id)
 	{
 		return null;
-		
+
 	}
 	void update_inf(User user)
 	{
-		
+
 	}
-	void Delete_user(User user)
+	boolean Delete_user(User user)
 	{
-		
+
+		return false;
 	}
 	User get_users_inf(String mail)
 	{
 		return null;
-		
+
 	}
 	boolean check_email_exist(String mail)
 	{
@@ -35,13 +37,21 @@ public class User_Model {
 	String Add_user(User user)   //kant string
 	{
 		return null;
-		
+
 	}
-	void Delete_User(String User_ID)
+	boolean Delete_User(String User_ID)
 	{
-		
+		int index=-1;
+		for(int i=0; i<User_Database.size(); i++)
+			if(User_Database.get(i).ID.equals(User_ID)) {index=i; break;}
+		if(index!=-1)
+			{
+				User_Database.remove(index);
+				return true;
+			}
+		return false;
 	}
-	
-	
+
+
 
 }

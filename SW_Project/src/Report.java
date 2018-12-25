@@ -8,12 +8,12 @@ public class Report {
 	public Boolean New_Report(String Disc , String User_id , String Post_id)
 	{
 		return null;
-		
+
 	}
 	public void Inform_Dev(String report_id)
 	{
-		
-	
+
+
 
 }
 }

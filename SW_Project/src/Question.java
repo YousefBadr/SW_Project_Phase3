@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -14,11 +15,11 @@ public class Question {
 	public String Disc;
 	Post post;
 	Vector MCQ=new Vector();
-	
+
 	Question New_Question (String Q,Vector mc,Post post )
 	{
 		return null;
-		
+
 	}
 	public String Set_Q()
 	{
@@ -32,9 +33,9 @@ public class Question {
 	{
 		return Disc;
 	}
-		
-	
-	
+
+
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
