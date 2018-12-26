@@ -1,8 +1,17 @@
 
-public class Reports_model {
-	public String Add_Report(String Report)
+import java.util.Vector;
+
+public class Reports_model
+{
+	public static String id="0";
+	public static Vector<Report> Rep_Database= new Vector<Report>();
+	public String Add_Report(Report report)
 	{
-		return Report;
+		report.Report_ID=id;
+		int temp= Integer.parseInt(id);
+		temp++;
+		id=temp+"";
+		return report.Report_ID;
 
 	}
 

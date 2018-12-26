@@ -5,15 +5,23 @@ public class Report {
 	public String report;
 	public String Report_ID;
 
-	public Boolean New_Report(String Disc , String User_id , String Post_id)
+	public boolean  New_Report(String Disc , String User_id , String Post_id)
 	{
-		return null;
+
+		USer_ID=User_id;
+		Post_ID=Post_id;
+		report=Disc;
+		Reports_model reports_model=new Reports_model();
+		Report_ID= reports_model.Add_Report(this);
+		this.Inform_Dev(Report_ID);
+		return true;
 
 	}
+
 	public void Inform_Dev(String report_id)
 	{
 
 
 
-}
+	}
 }
