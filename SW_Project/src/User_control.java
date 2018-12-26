@@ -6,7 +6,7 @@ public class User_control {
 //	+Report_Completed():void
 //	+new_user(name: string,mail: string,password: string,mpbile: string):  string
 //	+Delete_User(User_ID: string):void
-    User user;
+    public static User user;
    public User_control(){user= new User();}
   boolean log_in_check(String mail ,String password)
   {

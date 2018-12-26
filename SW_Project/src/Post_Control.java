@@ -1,4 +1,5 @@
 
+import java.util.Scanner;
 import java.util.Vector;
 
 
@@ -27,6 +28,25 @@ public class Post_Control {
 			return false;
 		}
 
+
+	}
+	
+	public Boolean Check_MCQ11(String choose)
+	{
+		
+	
+			
+			if(choose.charAt(0)=='*')
+			{
+				return true;
+				
+			}
+			else 
+			{
+				return false;
+			}
+		
+		
 
 	}
 	public Vector Get_Posts(String Mail)
@@ -65,6 +85,9 @@ public class Post_Control {
 
 
 	}
+	
+
+	
 
 
 
