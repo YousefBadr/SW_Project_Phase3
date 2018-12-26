@@ -1,19 +1,20 @@
+
 import java.util.Vector;
 
 //import SWE.Post;
 
 public class Posts_model {
-	
+
 	public static Vector<Post>Posts_Database=new Vector<Post>();
-	
+
 	public String Add_Post_To_Model(Post post)
 	{
 		Posts_Database.add(post);
 		return "Done !";
-		
+
 	}
-	
-	
+
+
 	public Post Get_Post_By_ID(String Post_ID)
 	{
 		for (int i = 0; i < Posts_Database.size(); i++) {
@@ -23,10 +24,11 @@ public class Posts_model {
 			}
 		}
 		return null;
-		
+
 	}
 	public Vector Search_Posts(String Mail)
 	{
+
 		Vector<Post>posts=new Vector<Post>();
 		String ID="";
 		for (int i = 0; i < User_Model.User_Database.size(); i++) {
@@ -68,10 +70,18 @@ public class Posts_model {
 		}
 		return posts;
 		
+
 	}
-	public String Delete_POst(String ID)
+	public String Delete_Posts(String ID)
 	{
-		return ID;
-		
+		Vector<Integer> indexes= new Vector<Integer>();
+
+		for(int i=0; i<Posts_Database.size(); i++)
+			if(Posts_Database.get(i).User_ID.equals(ID)) indexes.addElement(i);
+
+		for(int j=0; j<indexes.size();j++)
+			Posts_Database.remove(indexes.get(j));
+		return "success";
+
 	}
 }
