@@ -8,6 +8,7 @@
 //+get_Question_inf(Post):Question
 //+wrong_ans(User):void
 
+
 public class Post {
 	public String ID ;
 	public String Category ;
@@ -53,3 +54,5 @@ public class Post {
 //	}
 
 }
+
+
