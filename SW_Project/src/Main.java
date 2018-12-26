@@ -93,7 +93,12 @@ public static void main(String[] args) {
 
 		if(select==7&&flag==true)
 		{
-
+			System.out.println("Set Report description:");
+			String rep_des=scanner.nextLine();
+			System.out.println("Set Post_ID (optional to best service)");
+			String post_id=scanner.nextLine();
+			User_control uControl= new User_control();
+			uControl.Create_Report(rep_des,curr_user.ID,post_id);
 
 
 

@@ -30,6 +30,8 @@ public class User_control {
   }
    void Create_Report(String Disc, String User_ID,String Post_ID)
    {
+	   Report report=new Report();
+	   report.New_Report(Disc, User_ID, Post_ID);
 
    }
    void Report_Completed()
