@@ -1,6 +1,8 @@
 
 import java.util.Vector;
 
+import jdk.nashorn.internal.ir.Flags;
+
 //+ get_user_by_id(user's id:string):User
 //+ update_inf(user:User):void
 //+Delete_user(user:User):void
@@ -32,11 +34,23 @@ public class User_Model {
 	}
 	boolean check_email_exist(String mail)
 	{
-		return false;
+	    boolean flag=false;
+	    for (int i = 0; i < User_Database.size(); i++) {
+			if(User_Database.get(i).Email.equals(mail))
+			{
+				flag=true;
+				break;
+			}
+				
+		}
+		return flag;
 	}
 	String Add_user(User user)   //kant string
 	{
-		return null;
+
+		User_Database.add(user);
+		return "Done";
+		
 
 	}
 	boolean Delete_User(String User_ID)

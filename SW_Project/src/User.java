@@ -11,7 +11,13 @@ public class User {
 
 	public User New_User(String name , String mail , String Pass , String mobile)
 	{
-		return null;
+
+		User aUser=new User();
+		aUser.Name=name;
+		aUser.Email=mail;
+		aUser.Password=Pass;
+		aUser.Mobile=mobile;
+		return aUser;
 
 	}
 

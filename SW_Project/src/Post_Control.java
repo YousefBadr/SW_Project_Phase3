@@ -31,7 +31,11 @@ public class Post_Control {
 	}
 	public Vector Get_Posts(String Mail)
 	{
-		return null;
+
+		Vector<Post>posts=new Vector<Post>();
+		Posts_model aModel =new Posts_model();
+		posts=aModel.Search_Posts(Mail);
+		return posts;
 
 	}
 
@@ -41,21 +45,33 @@ public class Post_Control {
 	}
 	public String Confirm_PI_delivery(String Post_ID)
 	{
-		return Post_ID;
 
+		Posts_model aModel=new Posts_model();
+		aModel.Set_PI_Delivery_Value("Comfirmed", Post_ID);
+		return "Confirmed";
+		
 	}
 	public void Confirm_Action()
 	{
-
+		System.out.println("Confirmed !");
 	}
 	public Vector Search_by_Category(String Category)
 	{
-		return null;
-
+		Vector<Post>posts=new Vector<Post>();
+		Posts_model aModel=new Posts_model();
+		posts=aModel.Get_cat_Posts(Category);
+		
+		return posts;
+		
 	}
 	public Post Select_Post(String ID)
 	{
-		return null;
+		Posts_model aModel=new Posts_model();
+		
+		Post post=new Post();
+		post =aModel.Get_Post_By_ID(ID);
+		return post;
+		
 
 	}
 	public String Delete_Posts(String User_ID)

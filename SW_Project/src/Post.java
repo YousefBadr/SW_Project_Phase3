@@ -16,6 +16,8 @@ public class Post {
 	public Question Questions;
 	public String User_ID ;
 
+	public String Confirm="Not confirmed";
+
 	public Post()
 	{
 

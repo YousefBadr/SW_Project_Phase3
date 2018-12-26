@@ -1,23 +1,28 @@
 
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Main {
 public static void main(String[] args) {
-	 User curr_user= new User();
-	 boolean flag=false;
+
+	
+	User curr_user= new User();
+	boolean flag=false;
+	 
 	while (true) {
 		Scanner scanner=new Scanner(System.in);
-
+		
 		System.out.println("1-log in");
+		System.out.println("2-Sign up");
 		System.out.println("3-Add Pi");
-		System.out.println("4-Delete account");
-		System.out.println("7-Report");
-		System.out.println("10-logout");
-
-
-
+    System.out.println("4-Delete account");
+		System.out.println("5-Search posts by catagory");
+    System.out.println("7-Report");
+		System.out.println("9-Confirm Pi deivery");
+    System.out.println("10-logout");
 		System.out.print("Enter Command num:");
 		int select=scanner.nextInt();
+		
 
 		if(select==1&&flag==false)
 		{
@@ -39,6 +44,7 @@ public static void main(String[] args) {
 				System.out.println("failed login");
 
 		}
+
 		if(select==3&&flag==true)
 		{
 			Post_Control aControl = new Post_Control();
@@ -91,6 +97,104 @@ public static void main(String[] args) {
 
 		}
 
+		else if (select==2&&flag==false){
+		 User_control aControl=new User_control();
+		 Scanner scanner2=new Scanner(System.in);
+		 String Name="";
+		 String Mail="";
+		 String Password="";
+		 String Mobile_Number="";
+		 
+		 System.out.print("Enter name: ");
+		 Name=scanner2.nextLine();
+		 System.out.print("Enter E_Mail: ");
+		 Mail=scanner2.nextLine();
+		 System.out.print("Enter Password: ");
+		 Password=scanner2.nextLine();
+		 System.out.print("Enter Mobile number: ");
+		 Mobile_Number=scanner2.nextLine();
+		 if(aControl.new_user(Name,Mail,Password,Mobile_Number).equals("Failed"))
+		 System.out.println("Failed to Sign up User !");
+		 else
+			 System.out.println("User Signed up Successfully");
+		}
+		else if (select==5 &&flag==true){
+			Post_Control aControl=new Post_Control(); 
+			String id="";
+			Scanner scanner2=new Scanner(System.in);
+			String Catagory="";
+			System.out.print("Enter catagory:");
+			Catagory=scanner2.nextLine();
+			Vector<Post>posts=aControl.Search_by_Category(Catagory);
+			for (int i = 0; i < posts.size(); i++) {
+				System.out.println("Post ID: "+posts.get(i).ID);
+				System.out.println("Post Category: "+posts.get(i).Category);
+				System.out.println("Post Description: "+posts.get(i).Description);
+				System.out.println("Post image path: "+posts.get(i).image);
+				System.out.println("Post User_ID: "+posts.get(i).User_ID );
+				System.out.println("Post Question Disc: "+posts.get(i).Questions.Disc );
+				
+				System.out.println();
+			}
+			System.out.print("Enter Post ID: ");
+			id=scanner2.nextLine();
+			Post tofind=aControl.Select_Post(id);
+			
+			for (int i = 0; i < posts.size(); i++) {
+				System.out.println("Post ID: "+tofind.ID);
+				System.out.println("Post Category: "+tofind.Category);
+				System.out.println("Post Description: "+tofind.Description);
+				System.out.println("Post image path: "+tofind.image);
+				System.out.println("Post User_ID: "+tofind.User_ID );
+				System.out.println("Post Question Disc: "+tofind.Questions.Disc );
+			}
+			
+            
+			
+			}
+		else if(select==9&&flag==true)
+		{
+			Vector<Post>posts=new Vector<Post>();
+			Post_Control aControl=new Post_Control();
+			posts=aControl.Get_Posts(curr_user.Email);
+			if (posts.size()==0) {
+				System.out.println("You have no posts !");
+			}
+			else
+			{
+				Scanner gScanner=new Scanner(System.in);
+				for (int i = 0; i < posts.size(); i++) {
+					System.out.println("Post ID: "+posts.get(i).ID);
+					System.out.println("Post Category: "+posts.get(i).Category);
+					System.out.println("Post Description: "+posts.get(i).Description);
+					System.out.println("Post image path: "+posts.get(i).image);
+					System.out.println("Post User_ID: "+posts.get(i).User_ID );
+					System.out.println("Post Question Disc: "+posts.get(i).Questions.Disc );
+					
+					System.out.println();
+				}
+				System.out.print("Enter Post ID: ");
+				String id=gScanner.nextLine();
+				for (int i = 0; i < posts.size(); i++) {
+					if (posts.get(i).ID.equals(id)) {
+						System.out.println("Post ID: "+posts.get(i).ID);
+						System.out.println("Post Category: "+posts.get(i).Category);
+						System.out.println("Post Description: "+posts.get(i).Description);
+						System.out.println("Post image path: "+posts.get(i).image);
+						System.out.println("Post User_ID: "+posts.get(i).User_ID );
+						System.out.println("Post Question Disc: "+posts.get(i).Questions.Disc );
+						
+					}
+				}
+				String back=aControl.Confirm_PI_delivery(id);
+		
+				
+			}
+			System.out.println();
+		}
+		
+
+
 		if(select==7&&flag==true)
 		{
 			System.out.println("Set Report description:");
@@ -108,6 +212,7 @@ public static void main(String[] args) {
 		{
 			flag=false;
 		}
+
 
 	}
 
