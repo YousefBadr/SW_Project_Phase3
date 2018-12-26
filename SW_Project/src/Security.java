@@ -8,11 +8,26 @@ public class Security {
 //	+check_user_exist(mail: string,password: string): Boolean
 
 
-	String Check_Security_MCQ_Disc(String User_ID,String Post_ID ,Question Answers)
+	public String Check_Security_MCQ_Disc(String User_ID,String Post_ID ,Question A)
 	{
+		// Dh ele mfrod y7sl p2a ps
+		
+		int count =0;
+		int Num_Q=A.Num_Q;
+	    int X =Num_Q-3;
+	    
+	    if(X>A.Answers)
+	    {
+	    	System.out.println("Alert you are in Denger zone!!");
+	    	return"Bad_Boy";
+	    }
+	    else
+	    {
+	    	return "Good_Boy";
+	    }
+		
+		
 
-
-		return "";
 	}
 	boolean check_ans(Question Q,Question Answers)
 	{

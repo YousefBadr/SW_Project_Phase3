@@ -17,6 +17,7 @@ public static void main(String[] args) {
 		System.out.println("3-Add Pi");
     System.out.println("4-Delete account");
 		System.out.println("5-Search posts by catagory");
+		System.out.println("6-Add MCQ");
     System.out.println("7-Report");
 		System.out.println("9-Confirm Pi deivery");
     System.out.println("10-logout");
@@ -42,6 +43,16 @@ public static void main(String[] args) {
 			    }
 			else
 				System.out.println("failed login");
+
+		}
+		if(select==6&&flag==true)
+		{
+			
+			Question p=new Question();
+			
+p.MCQ_TEMP();
+
+
 
 		}
 

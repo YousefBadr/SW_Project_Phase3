@@ -29,6 +29,24 @@ public class Post_Control {
 
 
 	}
+	public Boolean Check_MCQ11(String choose)
+	{
+		
+	
+			
+			if(choose.charAt(0)=='*')
+			{
+				return true;
+				
+			}
+			else 
+			{
+				return false;
+			}
+		
+		
+
+	}
 	public Vector Get_Posts(String Mail)
 	{
 
