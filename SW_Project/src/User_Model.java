@@ -1,4 +1,6 @@
+
 //package com.company;
+
 import java.util.Vector;
 
 import jdk.nashorn.internal.ir.Flags;
@@ -12,8 +14,10 @@ import jdk.nashorn.internal.ir.Flags;
 //+Delete_User(User_ID): void
 
 public class User_Model {
+
 	public static String user_id_count="447";
 	public static Vector<User>User_Database=new Vector<User>();
+
 
 	User get_user_by_id(String users_id)
 	{
@@ -31,12 +35,14 @@ public class User_Model {
 	}
 	User get_users_inf(String mail)
 	{
+
 		int index=0;
 		for (int i=0; i<User_Database.size();i++)
 			if(mail.equals(User_Database.get(i).Email)){index=i; break;}
 
 		User user= new User();
 		user=User_Database.elementAt(index); return user;
+
 	}
 	boolean check_email_exist(String mail)
 	{
@@ -54,11 +60,13 @@ public class User_Model {
 	String Add_user(User user)   //kant string
 	{
 
+
 		user.ID=user_id_count;
 		int temp= Integer.parseInt(user_id_count);
 		temp++;
 		user_id_count=temp+"";
 		User_Database.addElement(user);
+
 		return "Done";
 		
 

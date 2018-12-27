@@ -1,4 +1,6 @@
+
 //package com.company;
+
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -17,6 +19,7 @@ public static void main(String[] args) {
 		System.out.println("3-Add Pi");
     System.out.println("4-Delete account");
 		System.out.println("5-Search posts by catagory");
+
     System.out.println("6-Report");
 		System.out.println("7-Confirm Pi deivery");
     System.out.println("8-logout");
@@ -25,14 +28,17 @@ public static void main(String[] args) {
 		
 
 		if(select.equals("1")&&flag==false)
+
 		{
 
 			System.out.print("Set mail");
 			String mail=scanner.nextLine();
 
+
 			System.out.print("Set password");
 			String password=scanner.nextLine();
 			User_control uControl= new User_control();
+
 			if(uControl.log_in_check(mail, password))
 			    {
 			    	System.out.println("Success login");
@@ -41,11 +47,13 @@ public static void main(String[] args) {
 
 			    }
 			else
+
 				System.out.println("Failed login");
 
 		}
 
 		if(select.equals("3")&&flag==true)
+
 		{
 			Post_Control aControl = new Post_Control();
 			Scanner sscanner=new Scanner(System.in);
@@ -56,6 +64,7 @@ public static void main(String[] args) {
 			cat=sscanner.nextLine();
 			System.out.print("Set image path:");
 			img=sscanner.nextLine();
+
 			System.out.print("if you need to put MCQ type 1 else type any symbol: ");
 			String check=sscanner.nextLine();
 			aControl.Check_MCQ(check);
@@ -64,6 +73,7 @@ public static void main(String[] args) {
 			}
 
 		if(select.equals("4")&&flag==true)
+
 		{
 
 			User_control uControl= new User_control();
@@ -71,9 +81,11 @@ public static void main(String[] args) {
 			Post_Control post_control=new Post_Control();
 			post_control.Delete_Posts(curr_user.ID);
 			flag=false;
+
 		}
 
 		else if (select.equals("2")&&flag==false){
+
 		 User_control aControl=new User_control();
 		 Scanner scanner2=new Scanner(System.in);
 		 String Name="";
@@ -92,12 +104,14 @@ public static void main(String[] args) {
 		 if(aControl.new_user(Name,Mail,Password,Mobile_Number).equals("Failed"))
 		 System.out.println("Failed to Sign up User !");
 		 else
+
 		 {
 		 	System.out.println("User Signed up Successfully");
 		 }
 
 		}
 		else if (select.equals("5") &&flag==true){
+
 			Post_Control aControl=new Post_Control(); 
 			String id="";
 			Scanner scanner2=new Scanner(System.in);
@@ -108,6 +122,7 @@ public static void main(String[] args) {
 			for (int i = 0; i < posts.size(); i++) {
 				System.out.println("Post ID: "+posts.get(i).ID);
 				System.out.println("Post Category: "+posts.get(i).Category);
+
 				System.out.println("Post image path: "+posts.get(i).image);
 				
 				System.out.println();
@@ -125,11 +140,14 @@ public static void main(String[] args) {
 				System.out.println("Post User_ID: " + tofind.User_ID);
 			}
 			else System.out.println("there is no posts of this category");
+
 			
             
 			
 			}
+
 		else if(select.equals("7")&&flag==true)
+
 		{
 			Vector<Post>posts=new Vector<Post>();
 			Post_Control aControl=new Post_Control();
@@ -161,6 +179,7 @@ public static void main(String[] args) {
 						System.out.println("Post User_ID: "+posts.get(i).User_ID );
 
 
+
 					}
 				}
 				String back=aControl.Confirm_PI_delivery(id);
@@ -172,12 +191,15 @@ public static void main(String[] args) {
 		
 
 
+
 		if(select.equals("6")&&flag==true)
+
 		{
 			System.out.println("Set Report description:");
 			String rep_des=scanner.nextLine();
 			System.out.println("Set Post_ID (optional to best service)");
 			String post_id=scanner.nextLine();
+
 			post_id+="";
 			User_control uControl= new User_control();
 			uControl.Create_Report(rep_des,curr_user.ID,post_id);
@@ -185,6 +207,7 @@ public static void main(String[] args) {
 		}
 
 		if(select.equals("8")&&flag==true)
+
 		{
 			flag=false;
 		}

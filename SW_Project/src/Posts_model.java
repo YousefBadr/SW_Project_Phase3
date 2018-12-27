@@ -1,10 +1,14 @@
+
 //package com.company;
+
 import java.util.Vector;
 
 //import SWE.Post;
 
 public class Posts_model {
+
 	public static String posts_id_count="145";
+
 	public static Vector<Post>Posts_Database=new Vector<Post>();
 
 	public String Add_Post_To_Model(Post post)
@@ -14,6 +18,7 @@ public class Posts_model {
 		temp++;
 		posts_id_count =temp+"";
 		Posts_Database.addElement(post);
+
 		return "Done !";
 
 	}
@@ -79,11 +84,14 @@ public class Posts_model {
 	public String Delete_Posts(String ID)
 	{
 		Vector<Integer> indexes= new Vector<Integer>();
+
 		System.out.println(ID);
+
 		for(int i=0; i<Posts_Database.size(); i++)
 			if(Posts_Database.get(i).User_ID.equals(ID)) indexes.addElement(i);
 
 		for(int j=0; j<indexes.size();j++)
+
 		{
 			Posts_Database.removeElementAt(indexes.get(j));
 		}
@@ -93,4 +101,5 @@ public class Posts_model {
 
 
 }
+
 

@@ -1,9 +1,12 @@
+
 //package com.company;
+
 import java.util.Vector;
 
 
 
 public class Post_Control {
+
 
 
 
@@ -34,6 +37,7 @@ public class Post_Control {
 		if(choose.equals("1"))
 		{
 			flag=true;
+
 			return true;
 		}
 		else {
@@ -92,6 +96,7 @@ public class Post_Control {
 	{
 		Posts_model posts_model= new Posts_model();
 		return posts_model.Delete_Posts(User_ID);
+
 	}
 
 	public void Add_MCQ_to_post(Post post)
@@ -101,4 +106,5 @@ public class Post_Control {
 		post.Questions=Q;
 
 	}
+
 }
