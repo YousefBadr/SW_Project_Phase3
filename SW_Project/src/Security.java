@@ -1,4 +1,4 @@
-
+//package com.company;
 public class Security {
 
 //	+Check_Security_MCQ_Disc(User_ID:string,Post_ID:string,Answers:Question):string
@@ -44,15 +44,16 @@ public class Security {
 
 	}
 	boolean check_user_exist(String mail,String password)
+
 	{
-		return true;
+		for(int i=0; i<User_Model.User_Database.size();i++)
+		{
+			if(mail.equals(User_Model.User_Database.get(i).Email)&&password.equals(User_Model.User_Database.get(i).Password)) return true;
+
+		}
+		return false;
 	}
 
 
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

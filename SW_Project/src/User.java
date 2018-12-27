@@ -1,5 +1,7 @@
 
 
+//package com.company;
+
 public class User {
 	public String ID;
 	public String Email;

@@ -1,4 +1,6 @@
 
+//package com.company;
+
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -17,19 +19,22 @@ public static void main(String[] args) {
 		System.out.println("3-Add Pi");
     System.out.println("4-Delete account");
 		System.out.println("5-Search posts by catagory");
-		System.out.println("6-Add MCQ");
-    System.out.println("7-Report");
-		System.out.println("9-Confirm Pi deivery");
-    System.out.println("10-logout");
+
+    System.out.println("6-Report");
+		System.out.println("7-Confirm Pi deivery");
+    System.out.println("8-logout");
 		System.out.print("Enter Command num:");
-		int select=scanner.nextInt();
+		String select=scanner.nextLine();
 		
 
-		if(select==1&&flag==false)
+		if(select.equals("1")&&flag==false)
+
 		{
 
 			System.out.print("Set mail");
 			String mail=scanner.nextLine();
+
+
 			System.out.print("Set password");
 			String password=scanner.nextLine();
 			User_control uControl= new User_control();
@@ -42,21 +47,13 @@ public static void main(String[] args) {
 
 			    }
 			else
-				System.out.println("failed login");
 
-		}
-		if(select==6&&flag==true)
-		{
-			
-			Question p=new Question();
-			
-p.MCQ_TEMP();
-
-
+				System.out.println("Failed login");
 
 		}
 
-		if(select==3&&flag==true)
+		if(select.equals("3")&&flag==true)
+
 		{
 			Post_Control aControl = new Post_Control();
 			Scanner sscanner=new Scanner(System.in);
@@ -67,36 +64,16 @@ p.MCQ_TEMP();
 			cat=sscanner.nextLine();
 			System.out.print("Set image path:");
 			img=sscanner.nextLine();
-			//aControl.Add_PI(cat, des,img,"00");
-			System.out.print("if you need to put MCQ type 1 else type 0: ");
-			int ssss=sscanner.nextInt();
 
-			if (aControl.Check_MCQ(ssss)) {
-				String qdes="";
-				Question question=new Question();
-				qdes=question.Set_Q();
-				question.Disc=qdes;
-				//System.out.println("Enter Question Description: ");
-			//	qdes=sscanner.nextLine();
-
-
-				aControl.Add_PI(cat, des, img, question, ""+User_Model.User_Database.size());
-
-				//Post xPost=new Post();
-			//	xPost.Show_Details();
-
-
-			}
-			else
-			{
-				Question question=null;
-				aControl.Add_PI(cat, des, img, question, "0");
+			System.out.print("if you need to put MCQ type 1 else type any symbol: ");
+			String check=sscanner.nextLine();
+			aControl.Check_MCQ(check);
+			aControl.Add_PI(cat, des,img,curr_user.ID);
 
 			}
 
+		if(select.equals("4")&&flag==true)
 
-		}
-		if(select==4&&flag==true)
 		{
 
 			User_control uControl= new User_control();
@@ -105,10 +82,10 @@ p.MCQ_TEMP();
 			post_control.Delete_Posts(curr_user.ID);
 			flag=false;
 
-
 		}
 
-		else if (select==2&&flag==false){
+		else if (select.equals("2")&&flag==false){
+
 		 User_control aControl=new User_control();
 		 Scanner scanner2=new Scanner(System.in);
 		 String Name="";
@@ -127,9 +104,14 @@ p.MCQ_TEMP();
 		 if(aControl.new_user(Name,Mail,Password,Mobile_Number).equals("Failed"))
 		 System.out.println("Failed to Sign up User !");
 		 else
-			 System.out.println("User Signed up Successfully");
+
+		 {
+		 	System.out.println("User Signed up Successfully");
+		 }
+
 		}
-		else if (select==5 &&flag==true){
+		else if (select.equals("5") &&flag==true){
+
 			Post_Control aControl=new Post_Control(); 
 			String id="";
 			Scanner scanner2=new Scanner(System.in);
@@ -140,30 +122,32 @@ p.MCQ_TEMP();
 			for (int i = 0; i < posts.size(); i++) {
 				System.out.println("Post ID: "+posts.get(i).ID);
 				System.out.println("Post Category: "+posts.get(i).Category);
-				System.out.println("Post Description: "+posts.get(i).Description);
+
 				System.out.println("Post image path: "+posts.get(i).image);
-				System.out.println("Post User_ID: "+posts.get(i).User_ID );
-				System.out.println("Post Question Disc: "+posts.get(i).Questions.Disc );
 				
 				System.out.println();
 			}
-			System.out.print("Enter Post ID: ");
-			id=scanner2.nextLine();
-			Post tofind=aControl.Select_Post(id);
-			
-			for (int i = 0; i < posts.size(); i++) {
-				System.out.println("Post ID: "+tofind.ID);
-				System.out.println("Post Category: "+tofind.Category);
-				System.out.println("Post Description: "+tofind.Description);
-				System.out.println("Post image path: "+tofind.image);
-				System.out.println("Post User_ID: "+tofind.User_ID );
-				System.out.println("Post Question Disc: "+tofind.Questions.Disc );
+			if(posts.size()!=0)
+			{
+				System.out.print("Enter Post ID: ");
+				id = scanner2.nextLine();
+				Post tofind = aControl.Select_Post(id);
+
+				System.out.println("Post ID: " + tofind.ID);
+				System.out.println("Post Category: " + tofind.Category);
+				System.out.println("Post Description: " + tofind.Description);
+				System.out.println("Post image path: " + tofind.image);
+				System.out.println("Post User_ID: " + tofind.User_ID);
 			}
+			else System.out.println("there is no posts of this category");
+
 			
             
 			
 			}
-		else if(select==9&&flag==true)
+
+		else if(select.equals("7")&&flag==true)
+
 		{
 			Vector<Post>posts=new Vector<Post>();
 			Post_Control aControl=new Post_Control();
@@ -180,7 +164,7 @@ p.MCQ_TEMP();
 					System.out.println("Post Description: "+posts.get(i).Description);
 					System.out.println("Post image path: "+posts.get(i).image);
 					System.out.println("Post User_ID: "+posts.get(i).User_ID );
-					System.out.println("Post Question Disc: "+posts.get(i).Questions.Disc );
+
 					
 					System.out.println();
 				}
@@ -193,12 +177,13 @@ p.MCQ_TEMP();
 						System.out.println("Post Description: "+posts.get(i).Description);
 						System.out.println("Post image path: "+posts.get(i).image);
 						System.out.println("Post User_ID: "+posts.get(i).User_ID );
-						System.out.println("Post Question Disc: "+posts.get(i).Questions.Disc );
-						
+
+
+
 					}
 				}
 				String back=aControl.Confirm_PI_delivery(id);
-		
+
 				
 			}
 			System.out.println();
@@ -206,20 +191,23 @@ p.MCQ_TEMP();
 		
 
 
-		if(select==7&&flag==true)
+
+		if(select.equals("6")&&flag==true)
+
 		{
 			System.out.println("Set Report description:");
 			String rep_des=scanner.nextLine();
 			System.out.println("Set Post_ID (optional to best service)");
 			String post_id=scanner.nextLine();
+
+			post_id+="";
 			User_control uControl= new User_control();
 			uControl.Create_Report(rep_des,curr_user.ID,post_id);
-
-
-
+			System.out.println("Thank You");
 		}
 
-		if(select==10&&flag==true)
+		if(select.equals("8")&&flag==true)
+
 		{
 			flag=false;
 		}
