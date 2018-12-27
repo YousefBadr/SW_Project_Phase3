@@ -1,4 +1,4 @@
-
+//package com.company;
 public class Report {
 	public String USer_ID;
 	public String Post_ID;

@@ -1,3 +1,4 @@
+//package com.company;
 //+ ID : String
 //+Category: String
 //+User_ID: String
@@ -8,6 +9,7 @@
 //+get_Question_inf(Post):Question
 //+wrong_ans(User):void
 
+
 public class Post {
 	public String ID ;
 	public String Category ;
@@ -16,27 +18,31 @@ public class Post {
 	public Question Questions;
 	public String User_ID ;
 
+	public String Confirm="Not confirmed";
+
 	public Post()
 	{
 
 	}
-	public Post New_Post (String c,String des,String img , Question question , String UID)
+	public Post New_Post (String c,String des,String img , String UID)
 	{
 		Post aPost=new Post();
 		Question aQuestion=new Question();
 		aPost.Category=c;
 		aPost.Description=des;
 		aPost.image=img;
-		aPost.Questions=question;
 		aPost.User_ID=UID;
 
 		//System.out.println(aPost.Description+" "+aPost.Category+" "+aPost.image+" "+aPost.Questions.Disc+" "+aPost.User_ID);
 		return aPost;
 
 	}
+
+
+
 	Question get_Question_inf(Post post)
 	{
-		return null;
+		return this.Questions;
 	}
 
 	void wrong_ans(User user)
@@ -51,3 +57,5 @@ public class Post {
 //	}
 
 }
+
+
